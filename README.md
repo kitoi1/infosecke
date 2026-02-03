@@ -29,5 +29,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 - Website: https://infosecke.com
-- GitHub: [@YOUR_USERNAME](https://github.com/kitoi1)
+- GitHub: [@kitoi1](https://github.com/kitoi1)
 - Twitter: [@InfoSecKe](https://twitter.com/InfoSecKe)
