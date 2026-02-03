@@ -17,7 +17,7 @@ Cybersecurity, Ethical Hacking, Linux, DevOps & Trading Technology Platform
 - Dark/Light theme support
 
 ## Quick Start
-1. Clone the repository: `git clone https://github.com/YOUR_USERNAME/infosecke.git`
+1. Clone the repository: `git clone https://github.com/kitoi1/infosecke.git`
 2. Open `index.html` in your browser
 3. Start exploring the content!
 
@@ -29,5 +29,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 - Website: https://infosecke.com
-- GitHub: [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
+- GitHub: [@YOUR_USERNAME](https://github.com/kitoi1)
 - Twitter: [@InfoSecKe](https://twitter.com/InfoSecKe)
