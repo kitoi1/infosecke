@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About InfoSecKe</title>
+  <meta
+    name="description"
+    content="Learn what InfoSecKe is, why it exists, and how the community is building a practical-first cybersecurity ecosystem."
+  />
+  <link rel="stylesheet" href="/assets/css/typography.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+  <div class="app-root">
+    <!-- reuse header -->
+    <header class="site-header">
+      <div class="top-bar">
+        <a href="/" class="brand">
+          <img src="/assets/images/branding/logo-mark.svg" alt="InfoSecKe logo" class="brand-logo" />
+          <span class="brand-text">InfoSecKe</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+      </div>
+      <nav class="navbar" id="mainNavbar">
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">☰</button>
+        <ul class="navbar-links">
+          <li><a href="/pages/education/index.html">Learning Paths</a></li>
+          <li><a href="/pages/labs/index.html">Labs</a></li>
+          <li><a href="/pages/tools/index.html">Tools</a></li>
+          <li><a href="/pages/community/index.html">Community</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <nav class="breadcrumbs">
+      <ol class="breadcrumbs-list">
+        <li><a href="/index.html">Home</a></li>
+        <li aria-current="page">About</li>
+      </ol>
+    </nav>
+
+    <main class="page-main">
+      <aside class="sidebar">
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">About</h2>
+          <ul class="sidebar-list">
+            <li><a href="/pages/about/mission.html">Mission</a></li>
+            <li><a href="/pages/about/vision.html">Vision</a></li>
+            <li><a href="/pages/about/values.html">Values</a></li>
+            <li><a href="/pages/about/team.html">Team</a></li>
+            <li><a href="/pages/about/roadmap.html">Roadmap</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="page-content">
+        <header class="page-header">
+          <h1 class="page-title">What is InfoSecKe?</h1>
+          <p class="page-subtitle">
+            InfoSecKe is an open-source cybersecurity ecosystem dedicated to
+            practical, community-powered learning and collaboration.
+          </p>
+        </header>
+
+        <article class="content-section">
+          <h2>Our mission</h2>
+          <p>
+            InfoSecKe exists to democratize cybersecurity knowledge. Whether
+            you are a student, self-taught learner, or seasoned practitioner,
+            the platform aims to give you accessible, high-quality, hands-on
+            content that bridges the gap between theory and real-world
+            security work.
+          </p>
+        </article>
+
+        <article class="content-section">
+          <h2>A practical-first philosophy</h2>
+          <p>
+            Instead of focusing only on certifications and definitions,
+            InfoSecKe pairs each concept with labs, tools, case studies,
+            and writeups. The goal is to help you internalize security
+            thinking by building, breaking, and defending systems in a
+            safe environment.
+          </p>
+        </article>
+
+        <article class="content-section">
+          <h2>Community-driven evolution</h2>
+          <p>
+            The platform is built by practitioners, for practitioners.
+            Community members contribute labs, tools, tutorials, research
+            writeups, and translations. The roadmap is transparent, and
+            contributions are recognized through reputation and attribution.
+          </p>
+        </article>
+
+        <section class="cta">
+          <h2>Become part of the movement</h2>
+          <p>
+            Learn more about our mission and roadmap, and consider
+            contributing content, tools, or feedback.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="/pages/about/mission.html">Read the Mission</a>
+            <a class="btn btn-outline" href="/pages/community/contribute.html">Contribute</a>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <!-- reuse footer layout -->
+      <div class="footer-grid">
+        <section>
+          <h3>Stay in the loop</h3>
+          <p>Follow roadmap updates and milestones as InfoSecKe evolves.</p>
+        </section>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> InfoSecKe.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/assets/js/theme-toggle.js"></script>
+  <script src="/assets/js/navbar.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

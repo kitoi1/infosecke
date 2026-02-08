@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reconnaissance – Pentest Methodology | InfoSecKe</title>
+  <meta
+    name="description"
+    content="Reconnaissance in ethical hacking: mapping attack surface with OSINT and authorized information gathering while respecting legal and scope boundaries."
+  />
+  <link rel="stylesheet" href="/assets/css/typography.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/animations.css" />
+  <link rel="stylesheet" href="/assets/css/theme-dark.css" />
+  <link rel="stylesheet" href="/assets/css/theme-light.css" />
+</head>
+<body>
+  <div class="app-root">
+    <header class="site-header">
+      <div class="top-bar">
+        <a href="/index.html" class="brand">
+          <img src="/assets/images/branding/logo-mark.svg" alt="InfoSecKe logo" class="brand-logo" />
+          <span class="brand-text">InfoSecKe</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+      </div>
+      <nav class="navbar" id="mainNavbar">
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">☰</button>
+        <ul class="navbar-links">
+          <li><a href="/pages/ethical-hacking/methodology/index.html">Methodology</a></li>
+          <li><a href="/pages/ethical-hacking/index.html">Ethical Hacking</a></li>
+          <li><a href="/pages/labs/index.html">Labs</a></li>
+          <li><a href="/pages/tools/index.html">Tools</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol class="breadcrumbs-list">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/pages/ethical-hacking/index.html">Ethical Hacking</a></li>
+        <li><a href="/pages/ethical-hacking/methodology/index.html">Methodology</a></li>
+        <li aria-current="page">Reconnaissance</li>
+      </ol>
+    </nav>
+
+    <main class="page-main">
+      <aside class="sidebar">
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Phases</h2>
+          <ul class="sidebar-list">
+            <li><a href="/pages/ethical-hacking/methodology/reconnaissance.html">Reconnaissance</a></li>
+            <li><a href="/pages/ethical-hacking/methodology/scanning.html">Scanning &amp; Enumeration</a></li>
+            <li><a href="/pages/ethical-hacking/methodology/exploitation.html">Exploitation</a></li>
+            <li><a href="/pages/ethical-hacking/methodology/post-exploitation.html">Post-Exploitation</a></li>
+            <li><a href="/pages/ethical-hacking/methodology/reporting.html">Reporting</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="page-content fade-in">
+        <header class="page-header">
+          <h1 class="page-title">Reconnaissance</h1>
+          <p class="page-subtitle">
+            Systematic information gathering that builds an accurate picture of
+            the target environment before you send active probes or exploits.
+          </p>
+        </header>
+
+        <article class="content-section" id="definition">
+          <h2>What is recon in ethical hacking?</h2>
+          <p>
+            Reconnaissance is the process of learning as much as you can about
+            a target using legal, authorized means. Good recon helps you
+            understand where to focus later technical testing and how to
+            minimize noise and risk.
+          </p>
+          <p>
+            In InfoSecKe labs, recon is modeled as a mix of open-source
+            intelligence (OSINT) and target-specific information gathering that
+            respects scope and rules of engagement.
+          </p>
+        </article>
+
+        <article class="content-section" id="types">
+          <h2>Passive vs active reconnaissance</h2>
+          <p>
+            Passive recon is about observing what is already exposed without
+            directly interacting with the target in a noticeable way. Active
+            recon uses deliberate requests or connections, but still with low
+            impact and within the allowed scope.
+          </p>
+          <p>
+            Ethical hackers choose techniques based on the engagement type.
+            Some tests are “black box” and rely heavily on OSINT, while others
+            provide internal documentation that guides more focused recon.
+          </p>
+        </article>
+
+        <article class="content-section" id="examples">
+          <h2>Typical recon activities in labs</h2>
+          <p>
+            In InfoSecKe scenarios, recon might involve gathering details from
+            lab descriptions, fake company profiles, and intentionally exposed
+            artifacts like changelogs or documentation pages.
+          </p>
+          <p>
+            As you progress, you’ll practice turning loose pieces of information
+            into structured notes: domain lists, key technologies, potential
+            entry points, and assumptions about business goals and risk.
+          </p>
+        </article>
+
+        <article class="content-section" id="notes">
+          <h2>Taking effective recon notes</h2>
+          <p>
+            Recon is only useful if you can refer back to it later. Many
+            practitioners keep a running notebook per engagement, recording
+            hosts, ports, technologies, credentials provided by the client,
+            and any early hypotheses about where weaknesses might appear.
+          </p>
+          <p>
+            In labs, getting into the habit of structured note-taking will make
+            your later exploitation and reporting much smoother.
+          </p>
+        </article>
+
+        <article class="content-section" id="ethics">
+          <h2>Ethical boundaries during recon</h2>
+          <p>
+            Even at this early stage, it is possible to cross ethical or legal
+            lines if you are careless. Staying inside scope matters: if a domain
+            or application is not explicitly in scope for a lab or engagement,
+            you treat it as out of bounds.
+          </p>
+          <p>
+            InfoSecKe is designed so that all recon is directed at environments
+            created specifically for learning. You should carry that discipline
+            with you into any real-world testing you do in the future.
+          </p>
+        </article>
+
+        <section class="cta">
+          <h2>Move from recon to scanning</h2>
+          <p>
+            Once you have a clear map of what appears to be in scope, you can
+            move into scanning to confirm open ports, services, and technologies.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="/pages/ethical-hacking/methodology/scanning.html">
+              Continue to Scanning
+            </a>
+            <a class="btn btn-outline" href="/pages/labs/beginner-labs.html">
+              Try recon-focused labs
+            </a>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <section>
+          <h3>Build good habits</h3>
+          <p>Strong recon and note-taking make every later phase more effective.</p>
+        </section>
+        <section>
+          <h3>Practice</h3>
+          <ul>
+            <li><a href="/pages/labs/docker-labs.html">Docker Labs</a></li>
+            <li><a href="/pages/labs/vulnerable-vms.html">Vulnerable VMs</a></li>
+            <li><a href="/pages/tools/categories/recon-tools.html">Recon Tools</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Learn</h3>
+          <ul>
+            <li><a href="/pages/resources/cheatsheets/linux-commands.html">Linux Commands</a></li>
+            <li><a href="/pages/resources/cheatsheets/nmap-cheatsheet.html">Scanning Cheatsheet</a></li>
+            <li><a href="/pages/blog/tags/guide.html">Recon Guides</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Ethics</h3>
+          <ul>
+            <li><a href="/pages/legal/ethics.html">Ethical Guidelines</a></li>
+            <li><a href="/pages/legal/compliance.html">Compliance</a></li>
+            <li><a href="/pages/legal/disclosure.html">Disclosure Policy</a></li>
+          </ul>
+        </section>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> InfoSecKe. Start every engagement the right way.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/assets/js/theme-toggle.js"></script>
+  <script src="/assets/js/navbar.js"></script>
+  <script src="/assets/js/progress-bar.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

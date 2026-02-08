@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reporting – Pentest Methodology | InfoSecKe</title>
+  <meta
+    name="description"
+    content="Reporting in ethical hacking: translating technical findings into clear, prioritized, and actionable reports for engineers, managers, and stakeholders."
+  />
+  <link rel="stylesheet" href="/assets/css/typography.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/animations.css" />
+  <link rel="stylesheet" href="/assets/css/theme-dark.css" />
+  <link rel="stylesheet" href="/assets/css/theme-light.css" />
+</head>
+<body>
+  <div class="app-root">
+    <header class="site-header">
+      <div class="top-bar">
+        <a href="/index.html" class="brand">
+          <img src="/assets/images/branding/logo-mark.svg" alt="InfoSecKe logo" class="brand-logo" />
+          <span class="brand-text">InfoSecKe</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+      </div>
+      <nav class="navbar" id="mainNavbar">
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">☰</button>
+        <ul class="navbar-links">
+          <li><a href="/pages/ethical-hacking/methodology/index.html">Methodology</a></li>
+          <li><a href="/pages/resources/templates/pentest-report.html">Report Template</a></li>
+          <li><a href="/pages/research/writeups/pentest-writeups.html">Writeups</a></li>
+          <li><a href="/pages/education/cybersecurity-career/interview-prep.html">Interviews</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol class="breadcrumbs-list">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/pages/ethical-hacking/index.html">Ethical Hacking</a></li>
+        <li><a href="/pages/ethical-hacking/methodology/index.html">Methodology</a></li>
+        <li aria-current="page">Reporting</li>
+      </ol>
+    </nav>
+
+    <main class="page-main">
+      <aside class="sidebar">
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Phases</h2>
+          <ul class="sidebar-list">
+            <li><a href="/pages/ethical-hacking/methodology/reconnaissance.html">Reconnaissance</a></li>
+            <li><a href="/pages/ethical-hacking/methodology/scanning.html">Scanning &amp; Enumeration</a></li>
+            <li><a href="/pages/ethical-hacking/methodology/exploitation.html">Exploitation</a></li>
+            <li><a href="/pages/ethical-hacking/methodology/post-exploitation.html">Post-Exploitation</a></li>
+            <li><a href="/pages/ethical-hacking/methodology/reporting.html">Reporting</a></li>
+          </ul>
+        </section>
+        <section class="sidebar-section" style="margin-top:0.9rem;">
+          <h2 class="sidebar-title">Resources</h2>
+          <ul class="sidebar-list">
+            <li><a href="/pages/resources/templates/pentest-report.html">Report Template</a></li>
+            <li><a href="/pages/resources/templates/risk-assessment.html">Risk Assessment Template</a></li>
+            <li><a href="/pages/blog/tags/case-study.html">Case Studies</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="page-content fade-in">
+        <header class="page-header">
+          <h1 class="page-title">Reporting</h1>
+          <p class="page-subtitle">
+            Where all the work comes together: a clear, honest, and actionable
+            description of what you found, what it means, and what to do next.
+          </p>
+        </header>
+
+        <article class="content-section" id="importance">
+          <h2>Why reporting is critical</h2>
+          <p>
+            A penetration test that is not followed by a good report has limited
+            value. Organizations need to understand which issues exist, how
+            severe they are, and how to fix them. A strong report helps
+            engineering teams prioritize work and gives leadership a realistic
+            view of risk.
+          </p>
+          <p>
+            For ethical hackers, reporting is also a way to demonstrate
+            professionalism and build trust.
+          </p>
+        </article>
+
+        <article class="content-section" id="structure">
+          <h2>Typical report structure</h2>
+          <p>
+            While formats differ, InfoSecKe’s templates include a few common
+            parts. There is usually an executive summary, a section describing
+            scope and methodology, a prioritized list of findings, and detailed
+            technical appendices with evidence.
+          </p>
+          <p>
+            Labs encourage you to practice writing concise but complete entries
+            for each finding, rather than just collecting screenshots.
+          </p>
+        </article>
+
+        <article class="content-section" id="findings">
+          <h2>Writing clear findings</h2>
+          <p>
+            Each finding in a report should answer specific questions: what the
+            issue is, where it was observed, how it can be reproduced, what the
+            impact is, and how it might be remediated. It should also have a
+            clear severity rating and enough context that a reader understands
+            why it matters.
+          </p>
+          <p>
+            In labs, you practice this by writing small reports for solved
+            challenges and comparing them with community writeups.
+          </p>
+        </article>
+
+        <article class="content-section" id="audiences">
+          <h2>Writing for multiple audiences</h2>
+          <p>
+            A good report can be read by both technical and non-technical
+            stakeholders. That is why many practitioners include a high-level
+            summary in simple language, followed by more detailed sections for
+            engineers and security teams.
+          </p>
+          <p>
+            InfoSecKe encourages you to think about who will read your reports
+            in the real world and to tailor tone and detail accordingly.
+          </p>
+        </article>
+
+        <article class="content-section" id="ethics">
+          <h2>Ethics in reporting</h2>
+          <p>
+            Reporting is also part of your ethical responsibility. You avoid
+            exaggerating impact, you clearly note any limitations in testing,
+            and you handle sensitive data carefully in screenshots and logs.
+          </p>
+          <p>
+            When applicable, you also align with responsible disclosure practices
+            so that vulnerabilities are fixed before any public discussion.
+          </p>
+        </article>
+
+        <section class="cta">
+          <h2>Practice writing reports</h2>
+          <p>
+            Use InfoSecKe templates and your lab results to build a portfolio of
+            reports. This will help you in job interviews, bug bounty programs,
+            and real-world engagements.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="/pages/resources/templates/pentest-report.html">
+              View report template
+            </a>
+            <a class="btn btn-outline" href="/pages/research/writeups/pentest-writeups.html">
+              Study sample writeups
+            </a>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <section>
+          <h3>Tell the story</h3>
+          <p>A strong report explains what happened, not just how clever you were.</p>
+        </section>
+        <section>
+          <h3>Build a portfolio</h3>
+          <ul>
+            <li><a href="/pages/education/cybersecurity-career/roadmap.html">Career Roadmap</a></li>
+            <li><a href="/pages/education/cybersecurity-career/salary-guide.html">Salary Guide</a></li>
+            <li><a href="/pages/community/jobs/opportunities.html">Job Opportunities</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Learn</h3>
+          <ul>
+            <li><a href="/pages/resources/books.html">Recommended Books</a></li>
+            <li><a href="/pages/blog/categories/hacking.html">Hacking Articles</a></li>
+            <li><a href="/pages/blog/tags/case-study.html">Case Studies</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Ethics</h3>
+          <ul>
+            <li><a href="/pages/legal/ethics.html">Ethical Guidelines</a></li>
+            <li><a href="/pages/legal/disclosure.html">Disclosure Policy</a></li>
+            <li><a href="/pages/legal/responsible-hacking.html">Responsible Hacking</a></li>
+          </ul>
+        </section>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> InfoSecKe. Clear reporting drives real change.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/assets/js/theme-toggle.js"></script>
+  <script src="/assets/js/navbar.js"></script>
+  <script src="/assets/js/progress-bar.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
+ 

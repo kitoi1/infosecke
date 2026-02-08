@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pentest Methodology – Ethical Hacking | InfoSecKe</title>
+  <meta
+    name="description"
+    content="A structured ethical hacking and penetration testing methodology: reconnaissance, scanning, exploitation, post-exploitation, and reporting – applied in a legal, controlled way."
+  />
+  <link rel="stylesheet" href="/assets/css/typography.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/animations.css" />
+  <link rel="stylesheet" href="/assets/css/theme-dark.css" />
+  <link rel="stylesheet" href="/assets/css/theme-light.css" />
+</head>
+<body>
+  <div class="app-root">
+    <header class="site-header">
+      <div class="top-bar">
+        <a href="/index.html" class="brand">
+          <img src="/assets/images/branding/logo-mark.svg" alt="InfoSecKe logo" class="brand-logo" />
+          <span class="brand-text">InfoSecKe</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+      </div>
+      <nav class="navbar" id="mainNavbar">
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">☰</button>
+        <ul class="navbar-links">
+          <li><a href="/pages/ethical-hacking/index.html">Ethical Hacking</a></li>
+          <li><a href="/pages/ethical-hacking/web-hacking/index.html">Web Hacking</a></li>
+          <li><a href="/pages/labs/index.html">Labs</a></li>
+          <li><a href="/pages/tools/index.html">Tools</a></li>
+          <li><a href="/pages/resources/templates/pentest-report.html">Templates</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol class="breadcrumbs-list">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/pages/ethical-hacking/index.html">Ethical Hacking</a></li>
+        <li aria-current="page">Methodology</li>
+      </ol>
+    </nav>
+
+    <main class="page-main">
+      <aside class="sidebar">
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Methodology steps</h2>
+          <ul class="sidebar-list">
+            <li><a href="/pages/ethical-hacking/methodology/reconnaissance.html">Reconnaissance</a></li>
+            <li><a href="/pages/ethical-hacking/methodology/scanning.html">Scanning &amp; Enumeration</a></li>
+            <li><a href="/pages/ethical-hacking/methodology/exploitation.html">Exploitation</a></li>
+            <li><a href="/pages/ethical-hacking/methodology/post-exploitation.html">Post-Exploitation</a></li>
+            <li><a href="/pages/ethical-hacking/methodology/reporting.html">Reporting</a></li>
+          </ul>
+        </section>
+        <section class="sidebar-section" style="margin-top:0.9rem;">
+          <h2 class="sidebar-title">Practice this flow</h2>
+          <ul class="sidebar-list">
+            <li><a href="/pages/labs/beginner-labs.html">Beginner Labs</a></li>
+            <li><a href="/pages/labs/intermediate-labs.html">Intermediate Labs</a></li>
+            <li><a href="/pages/labs/ctf-challenges/easy-ctf.html">CTF Challenges</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="page-content fade-in">
+        <header class="page-header">
+          <h1 class="page-title">Ethical Hacking Methodology</h1>
+          <p class="page-subtitle">
+            A repeatable, disciplined approach to penetration testing: from initial
+            recon to clear, actionable reports – always aligned with scope, law,
+            and ethics.
+          </p>
+        </header>
+
+        <article class="content-section" id="overview">
+          <h2>Why methodology matters</h2>
+          <p>
+            Ethical hacking is not about random poking at systems. Professional
+            testers follow a structured methodology that keeps engagements safe,
+            efficient, and valuable. A consistent flow also makes it easier to
+            communicate with clients, reproduce findings, and defend your work.
+          </p>
+          <p>
+            The methodology used in InfoSecKe labs mirrors real-world penetration
+            testing steps while keeping everything inside clearly defined, legal
+            boundaries.
+          </p>
+        </article>
+
+        <article class="content-section" id="steps">
+          <h2>The high-level flow</h2>
+          <p>
+            Different organizations name steps differently, but the core ideas are
+            similar. For this track, we focus on five major phases.
+          </p>
+
+          <div class="card">
+            <h3 class="card-title">1. Reconnaissance</h3>
+            <p>
+              Gather information about the target from public and authorized
+              sources. Understand the attack surface before sending active probes.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.6rem;">
+            <h3 class="card-title">2. Scanning &amp; enumeration</h3>
+            <p>
+              Use controlled scanning to map open ports, services, technologies,
+              and potential entry points, turning rough recon into concrete
+              targets.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.6rem;">
+            <h3 class="card-title">3. Exploitation</h3>
+            <p>
+              Safely attempt to exploit confirmed weaknesses, focusing on
+              demonstrating realistic impact rather than causing disruption or
+              damage.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.6rem;">
+            <h3 class="card-title">4. Post-exploitation</h3>
+            <p>
+              Assess the depth and breadth of compromise: what data and systems
+              are reachable, and how an attacker could move laterally – while
+              staying within agreed rules of engagement.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.6rem;">
+            <h3 class="card-title">5. Reporting</h3>
+            <p>
+              Translate technical findings into clear, prioritized recommendations
+              for different audiences, from engineers to executives. A good report
+              is often more valuable than the exploit itself.
+            </p>
+          </div>
+        </article>
+
+        <article class="content-section" id="ethics">
+          <h2>Ethics and scope come first</h2>
+          <p>
+            Every phase of this methodology depends on clearly defined scope,
+            written authorization, and a shared understanding of what is allowed.
+            That includes which systems are in scope, which techniques are
+            permitted, what data must not be touched, and how to handle any
+            unexpected issues.
+          </p>
+          <p>
+            In InfoSecKe labs and CTF challenges, these constraints are built in:
+            targets are intentionally vulnerable and isolated so that you can
+            practice without impacting real users or infrastructure.
+          </p>
+        </article>
+
+        <article class="content-section" id="labs">
+          <h2>Using the methodology in labs</h2>
+          <p>
+            Each phase of the methodology has corresponding labs and challenges on
+            InfoSecKe. For example, recon labs focus on mapping applications
+            safely, while exploitation labs guide you through demonstrating impact
+            on specific vulnerabilities like SQL injection or XSS.
+          </p>
+          <p>
+            As you complete labs, pay attention not only to the payloads and
+            tools, but also to the order in which you approach problems – that is
+            what turns ad-hoc hacking into professional testing.
+          </p>
+        </article>
+
+        <section class="cta">
+          <h2>Follow the methodology step by step</h2>
+          <p>
+            Start with reconnaissance, move through scanning and exploitation, and
+            finish with strong reporting skills. Repeating this cycle across labs
+            will make it feel natural during real-world engagements.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="/pages/ethical-hacking/methodology/reconnaissance.html">
+              Begin with Reconnaissance
+            </a>
+            <a class="btn btn-outline" href="/pages/resources/templates/pentest-report.html">
+              Review report template
+            </a>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <section>
+          <h3>Keep it structured</h3>
+          <p>Use a repeatable methodology so each engagement is reliable and defensible.</p>
+        </section>
+        <section>
+          <h3>Practice</h3>
+          <ul>
+            <li><a href="/pages/labs/beginner-labs.html">Beginner Labs</a></li>
+            <li><a href="/pages/labs/advanced-labs.html">Advanced Labs</a></li>
+            <li><a href="/pages/research/writeups/pentest-writeups.html">Pentest Writeups</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Learn</h3>
+          <ul>
+            <li><a href="/pages/education/learning-paths.html">Learning Paths</a></li>
+            <li><a href="/pages/education/certifications/oscp.html">OSCP Track</a></li>
+            <li><a href="/pages/resources/books.html">Book Recommendations</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Ethics</h3>
+          <ul>
+            <li><a href="/pages/legal/ethics.html">Ethical Guidelines</a></li>
+            <li><a href="/pages/legal/disclosure.html">Disclosure Policy</a></li>
+            <li><a href="/pages/legal/responsible-hacking.html">Responsible Hacking</a></li>
+          </ul>
+        </section>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> InfoSecKe. Methodology over chaos.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/assets/js/theme-toggle.js"></script>
+  <script src="/assets/js/navbar.js"></script>
+  <script src="/assets/js/progress-bar.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

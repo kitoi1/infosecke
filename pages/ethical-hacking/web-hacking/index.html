@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Hacking | InfoSecKe</title>
+  <meta
+    name="description"
+    content="Web hacking at InfoSecKe: attack surface mapping, the OWASP Top 10, API security, authentication, and business logic testing with a strong ethical focus."
+  />
+  <link rel="stylesheet" href="/assets/css/typography.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/animations.css" />
+  <link rel="stylesheet" href="/assets/css/theme-dark.css" />
+  <link rel="stylesheet" href="/assets/css/theme-light.css" />
+</head>
+<body>
+  <div class="app-root">
+    <header class="site-header">
+      <div class="top-bar">
+        <a href="/index.html" class="brand">
+          <img src="/assets/images/branding/logo-mark.svg" alt="InfoSecKe logo" class="brand-logo" />
+          <span class="brand-text">InfoSecKe</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+      </div>
+      <nav class="navbar" id="mainNavbar">
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">☰</button>
+        <ul class="navbar-links">
+          <li><a href="/pages/ethical-hacking/index.html">Ethical Hacking</a></li>
+          <li><a href="/pages/ethical-hacking/web-hacking/index.html">Web Hacking</a></li>
+          <li><a href="/pages/labs/index.html">Labs</a></li>
+          <li><a href="/pages/tools/index.html">Tools</a></li>
+          <li><a href="/pages/blog/categories/hacking.html">Hacking Blog</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol class="breadcrumbs-list">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/pages/ethical-hacking/index.html">Ethical Hacking</a></li>
+        <li aria-current="page">Web Hacking</li>
+      </ol>
+    </nav>
+
+    <main class="page-main">
+      <aside class="sidebar">
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Web hacking topics</h2>
+          <ul class="sidebar-list">
+            <li><a href="/pages/ethical-hacking/web-hacking/owasp-top-10.html">OWASP Top 10</a></li>
+            <li><a href="/pages/ethical-hacking/web-hacking/sql-injection.html">SQL Injection</a></li>
+            <li><a href="/pages/ethical-hacking/web-hacking/xss.html">Cross-Site Scripting (XSS)</a></li>
+            <!-- future: add more, e.g. auth, IDOR, SSRF, etc. -->
+          </ul>
+        </section>
+        <section class="sidebar-section" style="margin-top:0.9rem;">
+          <h2 class="sidebar-title">Practice labs</h2>
+          <ul class="sidebar-list">
+            <li><a href="/pages/labs/beginner-labs.html">Beginner Web Labs</a></li>
+            <li><a href="/pages/labs/intermediate-labs.html">Intermediate Labs</a></li>
+            <li><a href="/pages/labs/ctf-challenges/easy-ctf.html">Web CTFs</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="page-content fade-in">
+        <header class="page-header">
+          <h1 class="page-title">Web Application Hacking</h1>
+          <p class="page-subtitle">
+            Understand how modern web applications break – and how to help fix them –
+            by studying input validation, authentication, authorization, session
+            management, and business logic flaws in a controlled, ethical way.
+          </p>
+        </header>
+
+        <article class="content-section" id="overview">
+          <h2>What is web application hacking?</h2>
+          <p>
+            Web application hacking is the process of testing web apps and APIs
+            for security weaknesses. Instead of guessing blindly, ethical hackers
+            build a mental map of the application and then interact with it in
+            ways that reveal flaws in design and implementation.
+          </p>
+          <p>
+            Because so much critical data flows through web interfaces, this area
+            is one of the most impactful places to apply ethical hacking skills.
+          </p>
+        </article>
+
+        <article class="content-section" id="surface">
+          <h2>Typical web attack surface</h2>
+          <p>
+            When you approach a web target, you are not just testing the HTML you
+            see in the browser. You are exploring a whole ecosystem:
+          </p>
+          <ul class="sidebar-list">
+            <li>Public endpoints (web site, APIs, admin panels).</li>
+            <li>Authentication and session handling flows.</li>
+            <li>File uploads, imports, and background jobs.</li>
+            <li>Third-party integrations (payment gateways, SSO, webhooks).</li>
+            <li>Underlying databases, caches, queues, and storage.</li>
+          </ul>
+          <p>
+            Ethical hacking combines this big-picture view with detailed testing
+            of individual parameters, headers, cookies, and business rules.
+          </p>
+        </article>
+
+        <article class="content-section" id="map">
+          <h2>From recon to reporting: the web hacking flow</h2>
+          <p>
+            A typical ethical web test on InfoSecKe follows a repeatable pattern:
+          </p>
+          <div class="card">
+            <h3 class="card-title">1. Recon &amp; mapping</h3>
+            <p>
+              Discover subdomains, enumerate routes, identify technologies, and
+              draw a mental or visual map of how users and data move through the
+              app.
+            </p>
+          </div>
+          <div class="card" style="margin-top:0.6rem;">
+            <h3 class="card-title">2. Risk-driven testing</h3>
+            <p>
+              Prioritize high-value areas (authentication, access control, input
+              handling, file uploads) and test them against common classes of
+              vulnerabilities such as injection and cross-site scripting.
+            </p>
+          </div>
+          <div class="card" style="margin-top:0.6rem;">
+            <h3 class="card-title">3. Impact &amp; reporting</h3>
+            <p>
+              When you find a flaw in a lab or authorized target, focus on
+              demonstrating realistic impact safely and documenting reproduction
+              steps, affected scope, and remediation guidance.
+            </p>
+          </div>
+        </article>
+
+        <article class="content-section" id="owasp">
+          <h2>The OWASP Top 10 as a learning scaffold</h2>
+          <p>
+            InfoSecKe uses the OWASP Top 10 categories as a starting point for
+            organizing web risks. This does not cover everything, but it gives a
+            structured way to reason about classes of bugs such as injection,
+            broken access control, and insecure design.
+          </p>
+          <p>
+            You can start with the dedicated OWASP Top 10 page and then dive
+            into specific vulnerabilities like SQL injection and Cross-Site
+            Scripting, each accompanied by labs and tool walkthroughs.
+          </p>
+          <p>
+            Remember: the goal is not just to recognize patterns, but to help
+            engineering teams design and build applications that avoid these
+            classes of bugs entirely.
+          </p>
+        </article>
+
+        <article class="content-section" id="labs">
+          <h2>How to practice safely</h2>
+          <p>
+            Web hacking skills must only be used in controlled environments or
+            with explicit permission. InfoSecKe provides:
+          </p>
+          <ul class="sidebar-list">
+            <li>Beginner-friendly web labs with guided hints.</li>
+            <li>Intermediate labs that model common real-world patterns.</li>
+            <li>CTF-style challenges that test your creative thinking.</li>
+            <li>Writeups that show how to think through a problem without
+                spoon-feeding solutions.</li>
+          </ul>
+          <p>
+            Combine these with your own lab setups (e.g. local vulnerable web
+            apps in containers) to build confidence before participating in
+            bug bounties or professional assessments.
+          </p>
+        </article>
+
+        <section class="cta">
+          <h2>Next steps in the web track</h2>
+          <p>
+            Start with the risk categories, then specialize in specific bug
+            types and labs that align with your current level.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="/pages/ethical-hacking/web-hacking/owasp-top-10.html">
+              Study OWASP Top 10
+            </a>
+            <a class="btn btn-outline" href="/pages/labs/beginner-labs.html">
+              Try beginner web labs
+            </a>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <section>
+          <h3>Stay ethical</h3>
+          <p>Always test only with permission and follow responsible disclosure.</p>
+        </section>
+        <section>
+          <h3>Deepen skills</h3>
+          <ul>
+            <li><a href="/pages/ethical-hacking/methodology/index.html">Pentest Methodology</a></li>
+            <li><a href="/pages/ethical-hacking/techniques/index.html">Advanced Techniques</a></li>
+            <li><a href="/pages/resources/templates/pentest-report.html">Report Template</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="/pages/community/mentorship.html">Mentorship</a></li>
+            <li><a href="/pages/community/projects/open-source.html">Open Source Projects</a></li>
+            <li><a href="/pages/community/jobs/index.html">Jobs</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Learning</h3>
+          <ul>
+            <li><a href="/pages/education/courses/hands-on-training.html">Hands-on Courses</a></li>
+            <li><a href="/pages/resources/cheatsheets/nmap-cheatsheet.html">Scanning Cheatsheet</a></li>
+            <li><a href="/pages/blog/categories/hacking.html">Hacking Articles</a></li>
+          </ul>
+        </section>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> InfoSecKe. Web hacking done right.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/assets/js/theme-toggle.js"></script>
+  <script src="/assets/js/navbar.js"></script>
+  <script src="/assets/js/progress-bar.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cross-Site Scripting (XSS) – Web Hacking | InfoSecKe</title>
+  <meta
+    name="description"
+    content="Learn Cross-Site Scripting (XSS) ethically: reflected, stored, and DOM-based XSS, how they arise in web apps, and how to prevent them with output encoding, CSP, and secure design."
+  />
+  <link rel="stylesheet" href="/assets/css/typography.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/animations.css" />
+  <link rel="stylesheet" href="/assets/css/theme-dark.css" />
+  <link rel="stylesheet" href="/assets/css/theme-light.css" />
+</head>
+<body>
+  <div class="app-root">
+    <header class="site-header">
+      <div class="top-bar">
+        <a href="/index.html" class="brand">
+          <img src="/assets/images/branding/logo-mark.svg" alt="InfoSecKe logo" class="brand-logo" />
+          <span class="brand-text">InfoSecKe</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+      </div>
+      <nav class="navbar" id="mainNavbar">
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">☰</button>
+        <ul class="navbar-links">
+          <li><a href="/pages/ethical-hacking/web-hacking/index.html">Web Hacking</a></li>
+          <li><a href="/pages/ethical-hacking/web-hacking/owasp-top-10.html">OWASP Top 10</a></li>
+          <li><a href="/pages/labs/index.html">Labs</a></li>
+          <li><a href="/pages/resources/cheatsheets/index.html">Cheatsheets</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol class="breadcrumbs-list">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/pages/ethical-hacking/index.html">Ethical Hacking</a></li>
+        <li><a href="/pages/ethical-hacking/web-hacking/index.html">Web Hacking</a></li>
+        <li aria-current="page">Cross-Site Scripting</li>
+      </ol>
+    </nav>
+
+    <main class="page-main">
+      <aside class="sidebar">
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Sections</h2>
+          <ul class="sidebar-list">
+            <li><a href="#definition">Definition</a></li>
+            <li><a href="#types">Main types of XSS</a></li>
+            <li><a href="#impact">Potential impact</a></li>
+            <li><a href="#defense">Defensive techniques</a></li>
+            <li><a href="#checklist">Developer checklist</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="page-content fade-in">
+        <header class="page-header">
+          <h1 class="page-title">Cross-Site Scripting (XSS)</h1>
+          <p class="page-subtitle">
+            XSS happens when untrusted data is handled in a way that allows
+            unintended script execution in a user’s browser. Ethical hackers
+            study XSS to help teams protect users and harden applications.
+          </p>
+        </header>
+
+        <article class="content-section" id="definition">
+          <h2>What is XSS?</h2>
+          <p>
+            Cross-Site Scripting is a vulnerability where an application includes
+            user-controlled content in HTML or client-side scripts without
+            proper handling. When this content is interpreted as code instead of
+            pure data, it can execute in the victim’s browser with the
+            privileges of that application’s origin.
+          </p>
+          <p>
+            In InfoSecKe labs, XSS is treated as a way to understand how trust
+            works in browsers and how small mistakes in output handling can
+            cascade into significant risk.
+          </p>
+        </article>
+
+        <article class="content-section" id="types">
+          <h2>Main types of XSS</h2>
+          <p>
+            While there are many nuances, you’ll often categorize XSS into three
+            main types when studying and testing:
+          </p>
+
+          <div class="card">
+            <h3 class="card-title">Reflected XSS</h3>
+            <p>
+              The application reflects user input immediately in a response,
+              such as a search result page that echoes the query. If the input is
+              not handled safely, an attacker may craft a link that causes
+              unintended script execution when a victim follows it.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.7rem;">
+            <h3 class="card-title">Stored XSS</h3>
+            <p>
+              User input is saved on the server (for example in a comment or
+              profile field) and later rendered for others. If output handling
+              is unsafe, the script executes whenever the vulnerable data is
+              viewed. This can affect many users and persist over time.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.7rem;">
+            <h3 class="card-title">DOM-based XSS</h3>
+            <p>
+              Client-side JavaScript reads data from sources like the URL,
+              local storage, or postMessage and injects it into the page in
+              a way that the browser interprets as code. The issue is in the
+              front-end logic rather than server-side rendering.
+            </p>
+          </div>
+        </article>
+
+        <article class="content-section" id="impact">
+          <h2>Potential impact in real systems</h2>
+          <p>
+            When XSS occurs in a live application, an attacker may be able to:
+          </p>
+          <ul class="sidebar-list">
+            <li>Act on behalf of a logged-in user within that application.</li>
+            <li>Read or modify content visible to that user in the page.</li>
+            <li>Trigger unintended actions (such as state-changing requests).</li>
+            <li>Interfere with how users see and interact with the interface.</li>
+          </ul>
+          <p>
+            Modern browsers and frameworks include features to reduce XSS risk,
+            but they are not magic shields. Secure design and careful handling
+            of data are still essential.
+          </p>
+        </article>
+
+        <article class="content-section" id="defense">
+          <h2>Defensive techniques against XSS</h2>
+          <p>
+            Ethical hackers should be able to explain how to prevent XSS, not
+            just how to demonstrate it. Key defenses include:
+          </p>
+
+          <div class="card">
+            <h3 class="card-title">Context-aware output encoding</h3>
+            <p>
+              When untrusted data is inserted into HTML, attributes, JavaScript,
+              or URLs, it should be encoded appropriately for that context. Many
+              frameworks offer templating engines or helper functions that do
+              this by default when used correctly.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.7rem;">
+            <h3 class="card-title">Avoiding dangerous client-side patterns</h3>
+            <p>
+              Operations like inserting unsanitized HTML directly into the DOM
+              or evaluating strings as code should be avoided. Favor APIs that
+              treat data as text or structured objects, not as code to run.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.7rem;">
+            <h3 class="card-title">Content Security Policy (CSP)</h3>
+            <p>
+              CSP can limit where scripts can be loaded from and which types of
+              inline code are allowed. A carefully designed policy complements
+              encoding and helps contain the impact of certain XSS bugs.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.7rem;">
+            <h3 class="card-title">Escaping and validating user-generated content</h3>
+            <p>
+              If users are allowed to format content (for example with Markdown
+              or rich text editors), use libraries that sanitize input and only
+              allow a safe subset of markup.
+            </p>
+          </div>
+        </article>
+
+        <article class="content-section" id="checklist">
+          <h2>Developer checklist for XSS</h2>
+          <p>
+            A simple checklist you can use when designing or reviewing features:
+          </p>
+          <ul class="sidebar-list">
+            <li>Are templates auto-escaping by default, and is that behavior left enabled?</li>
+            <li>Are any exceptions to auto-escaping truly necessary and carefully reviewed?</li>
+            <li>Does any client-side code insert raw HTML or evaluate strings as code?</li>
+            <li>Is there a Content Security Policy in place for critical applications?</li>
+            <li>Are user-generated contents sanitized using well-maintained libraries?</li>
+          </ul>
+          <p>
+            Use this checklist together with threat modeling and code review to
+            keep new XSS vulnerabilities from slipping into the codebase.
+          </p>
+        </article>
+
+        <section class="cta">
+          <h2>Practice XSS in safe environments</h2>
+          <p>
+            InfoSecKe labs provide controlled scenarios where XSS is intentionally
+            present. Use them to deepen your understanding of both exploitation
+            and defense, always within the boundaries of ethical hacking.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="/pages/labs/beginner-labs.html">
+              Try beginner XSS labs
+            </a>
+            <a class="btn btn-outline" href="/pages/labs/ctf-challenges/easy-ctf.html">
+              Explore XSS CTF challenges
+            </a>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <section>
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="/pages/community/forum.html">Forum</a></li>
+            <li><a href="/pages/community/discord.html">Discord</a></li>
+            <li><a href="/pages/community/projects/open-source.html">Open Source</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Learn</h3>
+          <ul>
+            <li><a href="/pages/cybersecurity/basics/index.html">Security Basics</a></li>
+            <li><a href="/pages/education/courses/beginner-courses.html">Beginner Courses</a></li>
+            <li><a href="/pages/resources/cheatsheets/linux-commands.html">Linux Cheatsheet</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Research</h3>
+          <ul>
+            <li><a href="/pages/research/writeups/ctf-writeups.html">CTF Writeups</a></li>
+            <li><a href="/pages/research/case-studies.html">Case Studies</a></li>
+            <li><a href="/pages/blog/tags/guide.html">Guides</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Ethics</h3>
+          <ul>
+            <li><a href="/pages/legal/ethics.html">Ethical Guidelines</a></li>
+            <li><a href="/pages/legal/responsible-hacking.html">Responsible Hacking</a></li>
+            <li><a href="/pages/legal/compliance.html">Compliance</a></li>
+          </ul>
+        </section>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> InfoSecKe. Protect users, not exploit them.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/assets/js/theme-toggle.js"></script>
+  <script src="/assets/js/navbar.js"></script>
+  <script src="/assets/js/progress-bar.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

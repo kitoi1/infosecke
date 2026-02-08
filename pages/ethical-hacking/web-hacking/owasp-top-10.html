@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OWASP Top 10 – Web Risks | InfoSecKe</title>
+  <meta
+    name="description"
+    content="Learn the major classes of web application risks categorized in the OWASP Top 10 and how they guide ethical hacking and secure development."
+  />
+  <link rel="stylesheet" href="/assets/css/typography.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/animations.css" />
+  <link rel="stylesheet" href="/assets/css/theme-dark.css" />
+  <link rel="stylesheet" href="/assets/css/theme-light.css" />
+</head>
+<body>
+  <div class="app-root">
+    <header class="site-header">
+      <div class="top-bar">
+        <a href="/index.html" class="brand">
+          <img src="/assets/images/branding/logo-mark.svg" alt="InfoSecKe logo" class="brand-logo" />
+          <span class="brand-text">InfoSecKe</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+      </div>
+      <nav class="navbar" id="mainNavbar">
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">☰</button>
+        <ul class="navbar-links">
+          <li><a href="/pages/ethical-hacking/index.html">Ethical Hacking</a></li>
+          <li><a href="/pages/ethical-hacking/web-hacking/index.html">Web Hacking</a></li>
+          <li><a href="/pages/labs/index.html">Labs</a></li>
+          <li><a href="/pages/resources/cheatsheets/index.html">Cheatsheets</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol class="breadcrumbs-list">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/pages/ethical-hacking/index.html">Ethical Hacking</a></li>
+        <li><a href="/pages/ethical-hacking/web-hacking/index.html">Web Hacking</a></li>
+        <li aria-current="page">OWASP Top 10</li>
+      </ol>
+    </nav>
+
+    <main class="page-main">
+      <aside class="sidebar">
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">On this page</h2>
+          <ul class="sidebar-list">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#categories">Risk categories</a></li>
+            <li><a href="#testing">Using the Top 10 in testing</a></li>
+            <li><a href="#defense">Defensive mindset</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="page-content fade-in">
+        <header class="page-header">
+          <h1 class="page-title">OWASP Top 10 – Web Application Risks</h1>
+          <p class="page-subtitle">
+            Use the major risk categories as a compass for ethical hacking and
+            secure design – not as a checklist to exploit systems without
+            permission.
+          </p>
+        </header>
+
+        <article class="content-section" id="overview">
+          <h2>What is the OWASP Top 10?</h2>
+          <p>
+            The OWASP Top 10 is a periodically updated list of broad risk
+            categories for web applications. It doesn’t enumerate every possible
+            bug. Instead, it groups common patterns that frequently lead to
+            serious security issues when overlooked.
+          </p>
+          <p>
+            For ethical hackers and defenders, the Top 10 is a shared language:
+            when you say “broken access control” or “injection” during an
+            assessment or code review, everyone understands the general risk,
+            even if the specific bug is unique.
+          </p>
+        </article>
+
+        <article class="content-section" id="categories">
+          <h2>Understanding the risk categories</h2>
+          <p>
+            The exact naming and ordering of categories changes over time, but
+            you’ll typically see themes like:
+          </p>
+
+          <div class="card">
+            <h3 class="card-title">Broken access control</h3>
+            <p>
+              Failures in enforcing “who can do what” in an application. Examples
+              include bypassing authorization checks by changing IDs, accessing
+              admin functions as a normal user, or using an unchanged default
+              role. These issues often have very high impact.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.7rem;">
+            <h3 class="card-title">Cryptographic failures</h3>
+            <p>
+              Problems with how sensitive data is handled in transit or at rest:
+              using outdated protocols, misconfigured TLS, weak key management,
+              or storing passwords without a proper password hashing function.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.7rem;">
+            <h3 class="card-title">Injection</h3>
+            <p>
+              When untrusted input is used directly in commands or queries sent
+              to interpreters such as SQL engines, template renderers, or shell
+              commands. This can lead to unexpected behavior at the database or
+              operating system level if not mitigated.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.7rem;">
+            <h3 class="card-title">Insecure design &amp; misconfiguration</h3>
+            <p>
+              Some issues are not single bugs but design choices or default
+              settings that ignore threat modeling: overly broad permissions,
+              debug features in production, or missing security headers.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.7rem;">
+            <h3 class="card-title">Vulnerable and outdated components</h3>
+            <p>
+              Using libraries, frameworks, or services with known security
+              issues or missing updates. Even if your own code is careful, these
+              dependencies can introduce serious risk.
+            </p>
+          </div>
+
+          <p style="margin-top:0.8rem;">
+            The Top 10 also touches on topics such as identification and
+            authentication failures, logging and monitoring, and client-side
+            security controls. Each category maps to multiple specific bug
+            patterns and defensive techniques.
+          </p>
+        </article>
+
+        <article class="content-section" id="testing">
+          <h2>Using the Top 10 in ethical web testing</h2>
+          <p>
+            When you approach a lab or authorized target on InfoSecKe, you can
+            use the Top 10 as a mental checklist of risk themes:
+          </p>
+          <ul class="sidebar-list">
+            <li>Where could access control fail for different user roles?</li>
+            <li>What input reaches interpreters such as database engines or template systems?</li>
+            <li>How is sensitive data handled: passwords, tokens, personal data?</li>
+            <li>Are default or debug configurations still present?</li>
+            <li>What third-party components and integrations does the app rely on?</li>
+          </ul>
+          <p>
+            Instead of trying random tricks, you are systematically testing the
+            app’s behavior against these risk patterns. This makes your work
+            more thorough and your reports more useful to engineering teams.
+          </p>
+        </article>
+
+        <article class="content-section" id="defense">
+          <h2>From risk categories to secure design</h2>
+          <p>
+            For each Top 10 category, InfoSecKe encourages you to also study the
+            defensive side:
+          </p>
+          <ul class="sidebar-list">
+            <li>How to structure authorization checks in a central, consistent way.</li>
+            <li>How to handle user input using validation, encoding, and safe APIs.</li>
+            <li>How to choose protocols, algorithms, and configurations for cryptography.</li>
+            <li>How to manage dependencies, secrets, and secure defaults in deployments.</li>
+          </ul>
+          <p>
+            Strong ethical hackers are also strong advisors: you don’t just
+            demonstrate risk, you can explain practical remediation patterns
+            and help teams avoid similar issues in the future.
+          </p>
+        </article>
+
+        <section class="cta">
+          <h2>Deep dive into key vulnerability classes</h2>
+          <p>
+            Continue by focusing on one vulnerability class at a time, pairing
+            theory pages with the labs and tools that match them.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="/pages/ethical-hacking/web-hacking/sql-injection.html">
+              Learn SQL Injection
+            </a>
+            <a class="btn btn-outline" href="/pages/ethical-hacking/web-hacking/xss.html">
+              Learn Cross-Site Scripting
+            </a>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <section>
+          <h3>Reference</h3>
+          <p>
+            Always refer to the official OWASP documentation for the latest
+            descriptions, guidance, and examples.
+          </p>
+        </section>
+        <section>
+          <h3>Practice</h3>
+          <ul>
+            <li><a href="/pages/labs/intermediate-labs.html">Intermediate Web Labs</a></li>
+            <li><a href="/pages/labs/ctf-challenges/medium-ctf.html">CTF Challenges</a></li>
+            <li><a href="/pages/tools/index.html">Web Testing Tools</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Learn more</h3>
+          <ul>
+            <li><a href="/pages/resources/books.html">Recommended Books</a></li>
+            <li><a href="/pages/blog/categories/hacking.html">Articles &amp; Writeups</a></li>
+            <li><a href="/pages/research/vulnerabilities/index.html">Vulnerability Research</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Ethics</h3>
+          <ul>
+            <li><a href="/pages/legal/ethics.html">Ethical Guidelines</a></li>
+            <li><a href="/pages/legal/disclosure.html">Disclosure Policy</a></li>
+            <li><a href="/pages/legal/responsible-hacking.html">Responsible Hacking</a></li>
+          </ul>
+        </section>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> InfoSecKe. Use this knowledge responsibly.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/assets/js/theme-toggle.js"></script>
+  <script src="/assets/js/navbar.js"></script>
+  <script src="/assets/js/progress-bar.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

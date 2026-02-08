@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ethical Hacking | InfoSecKe</title>
+  <meta
+    name="description"
+    content="Ethical hacking at InfoSecKe: methodology, web and network hacking, wireless, mobile and Active Directory security – all with a strong legal and ethical foundation."
+  />
+  <link rel="stylesheet" href="/assets/css/typography.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/animations.css" />
+  <link rel="stylesheet" href="/assets/css/theme-dark.css" />
+  <link rel="stylesheet" href="/assets/css/theme-light.css" />
+</head>
+<body>
+  <div class="app-root">
+    <header class="site-header">
+      <div class="top-bar">
+        <a href="/index.html" class="brand">
+          <img src="/assets/images/branding/logo-mark.svg" alt="InfoSecKe logo" class="brand-logo" />
+          <span class="brand-text">InfoSecKe</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+      </div>
+      <nav class="navbar" id="mainNavbar">
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">☰</button>
+        <ul class="navbar-links">
+          <li><a href="/pages/cybersecurity/index.html">Cybersecurity</a></li>
+          <li><a href="/pages/ethical-hacking/index.html">Ethical Hacking</a></li>
+          <li><a href="/pages/labs/index.html">Labs</a></li>
+          <li><a href="/pages/tools/index.html">Tools</a></li>
+          <li><a href="/pages/linux/index.html">Linux</a></li>
+          <li><a href="/pages/devops/index.html">DevOps</a></li>
+          <li><a href="/pages/trading-tech/index.html">Trading Tech</a></li>
+          <li><a href="/pages/research/index.html">Research</a></li>
+          <li><a href="/pages/community/index.html">Community</a></li>
+          <li><a href="/pages/education/index.html">Education</a></li>
+          <li><a href="/pages/blog/index.html">Blog</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol class="breadcrumbs-list">
+        <li><a href="/index.html">Home</a></li>
+        <li aria-current="page">Ethical Hacking</li>
+      </ol>
+    </nav>
+
+    <main class="page-main">
+      <aside class="sidebar">
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Ethical hacking areas</h2>
+          <ul class="sidebar-list">
+            <li><a href="/pages/ethical-hacking/web-hacking/index.html">Web Hacking</a></li>
+            <li><a href="/pages/ethical-hacking/network-hacking/index.html">Network Hacking</a></li>
+            <li><a href="/pages/ethical-hacking/wireless-hacking.html">Wireless Hacking</a></li>
+            <li><a href="/pages/ethical-hacking/mobile-hacking.html">Mobile Hacking</a></li>
+            <li><a href="/pages/ethical-hacking/active-directory/index.html">Active Directory</a></li>
+            <li><a href="/pages/ethical-hacking/methodology/index.html">Methodology</a></li>
+            <li><a href="/pages/ethical-hacking/techniques/index.html">Advanced Techniques</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="page-content fade-in">
+        <header class="page-header">
+          <h1 class="page-title">Ethical Hacking</h1>
+          <p class="page-subtitle">
+            Learn how attackers think and operate so that you can help organizations
+            fix weaknesses, improve resilience, and build safer systems – always
+            within legal and ethical boundaries.
+          </p>
+        </header>
+
+        <article class="content-section" id="overview">
+          <h2>What is ethical hacking?</h2>
+          <p>
+            Ethical hacking is the practice of simulating real-world attacks against
+            systems, applications, and networks with permission, for the purpose of
+            identifying and fixing vulnerabilities. Ethical hackers follow
+            defined scopes, respect the law, and always prioritize the safety and
+            privacy of users.
+          </p>
+          <p>
+            At InfoSecKe, ethical hacking is taught as a disciplined, professional
+            skillset: you’ll learn how to plan an engagement, communicate with
+            stakeholders, execute tests safely, and produce actionable reports that
+            help teams remediate risk.
+          </p>
+        </article>
+
+        <article class="content-section" id="domains">
+          <h2>Core domains of ethical hacking</h2>
+          <p>
+            This section of InfoSecKe is organized into practical areas that match
+            how real engagements are run:
+          </p>
+          <div class="card">
+            <h3 class="card-title">Web application hacking</h3>
+            <p class="card-meta">/pages/ethical-hacking/web-hacking/</p>
+            <p>
+              Focused on web apps, APIs, authentication flows, and business logic.
+              You’ll learn how common flaws arise, how to confirm impact safely,
+              and how to help developers fix root causes instead of patching
+              symptoms.
+            </p>
+          </div>
+          <div class="card" style="margin-top:0.8rem;">
+            <h3 class="card-title">Network & infrastructure hacking</h3>
+            <p class="card-meta">/pages/ethical-hacking/network-hacking/</p>
+            <p>
+              Targets layer 2–4 protocols, internal networks, exposed services,
+              and misconfigurations in traditional infrastructure.
+            </p>
+          </div>
+          <div class="card" style="margin-top:0.8rem;">
+            <h3 class="card-title">Wireless, mobile & identity systems</h3>
+            <p>
+              Specialized testing for Wi-Fi, Bluetooth, mobile applications, and
+              identity systems like Active Directory, with a strong focus on
+              configuration weaknesses and abuse of trust relationships.
+            </p>
+          </div>
+        </article>
+
+        <article class="content-section" id="web-focus">
+          <h2>Why web hacking is a prime focus</h2>
+          <p>
+            Most modern organizations expose critical functionality over HTTP:
+            customer portals, admin panels, internal tools, APIs, and integration
+            endpoints. A single flaw in input validation, access control, or
+            session handling can translate directly into data exposure or account
+            takeover.
+          </p>
+          <p>
+            That’s why InfoSecKe dedicates a full track to web hacking, aligned
+            with widely used risk categories like the OWASP Top 10 and extended
+            with topics such as API security, authentication design, and
+            business logic abuse.
+          </p>
+          <p>
+            Your journey will pair theory pages with labs, CTF challenges, and
+            tooling walkthroughs so you can practice safely on intentional
+            targets, not on real-world systems.
+          </p>
+        </article>
+
+        <article class="content-section" id="ethics">
+          <h2>Legal and ethical guardrails</h2>
+          <p>
+            All techniques you learn here must be used responsibly. That means:
+          </p>
+          <p>
+            Only testing systems you own or have explicit written permission to test,
+            respecting all applicable laws and regulations, and following responsible
+            disclosure processes for vulnerabilities you discover.
+          </p>
+          <p>
+            InfoSecKe reinforces these principles throughout labs, writeups, and
+            community guidelines so that your skills are consistently aligned
+            with professional and ethical expectations.
+          </p>
+        </article>
+
+        <section class="cta">
+          <h2>Start the web hacking track</h2>
+          <p>
+            Begin with the web hacking overview, then work through the OWASP Top 10,
+            targeted vulnerability pages, and hands-on labs that simulate real
+            engagements.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="/pages/ethical-hacking/web-hacking/index.html">
+              Go to Web Hacking
+            </a>
+            <a class="btn btn-outline" href="/pages/labs/index.html">
+              Browse Labs &amp; CTFs
+            </a>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <section>
+          <h3>About InfoSecKe</h3>
+          <p>Open-source, practical-first cybersecurity education and tooling.</p>
+        </section>
+        <section>
+          <h3>Learn</h3>
+          <ul>
+            <li><a href="/pages/education/learning-paths.html">Learning Paths</a></li>
+            <li><a href="/pages/education/certifications/index.html">Certifications</a></li>
+            <li><a href="/pages/resources/cheatsheets/index.html">Cheatsheets</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Build skills</h3>
+          <ul>
+            <li><a href="/pages/labs/index.html">Labs &amp; Challenges</a></li>
+            <li><a href="/pages/tools/index.html">Tools</a></li>
+            <li><a href="/pages/research/index.html">Research</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="/pages/community/discord.html">Discord</a></li>
+            <li><a href="/pages/community/events/index.html">Events</a></li>
+            <li><a href="/pages/community/mentorship.html">Mentorship</a></li>
+          </ul>
+        </section>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> InfoSecKe. Practice ethically. Hack responsibly.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/assets/js/theme-toggle.js"></script>
+  <script src="/assets/js/navbar.js"></script>
+  <script src="/assets/js/progress-bar.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

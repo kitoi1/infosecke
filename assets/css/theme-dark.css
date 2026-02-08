@@ -1,0 +1,5 @@
+/* theme-dark.css */
+/* Additional dark-specific overrides if needed */
+html[data-theme="dark"] body {
+  background: radial-gradient(circle at top, #151b38 0, #050712 40%, #000 100%);
+}

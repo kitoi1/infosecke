@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SQL Injection – Web Hacking | InfoSecKe</title>
+  <meta
+    name="description"
+    content="Understand SQL injection from an ethical hacking perspective: how it happens, how to recognize it in labs, and how to prevent it with secure coding practices."
+  />
+  <link rel="stylesheet" href="/assets/css/typography.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/animations.css" />
+  <link rel="stylesheet" href="/assets/css/theme-dark.css" />
+  <link rel="stylesheet" href="/assets/css/theme-light.css" />
+</head>
+<body>
+  <div class="app-root">
+    <header class="site-header">
+      <div class="top-bar">
+        <a href="/index.html" class="brand">
+          <img src="/assets/images/branding/logo-mark.svg" alt="InfoSecKe logo" class="brand-logo" />
+          <span class="brand-text">InfoSecKe</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+      </div>
+      <nav class="navbar" id="mainNavbar">
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">☰</button>
+        <ul class="navbar-links">
+          <li><a href="/pages/ethical-hacking/web-hacking/index.html">Web Hacking</a></li>
+          <li><a href="/pages/ethical-hacking/web-hacking/owasp-top-10.html">OWASP Top 10</a></li>
+          <li><a href="/pages/labs/index.html">Labs</a></li>
+          <li><a href="/pages/tools/index.html">Tools</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol class="breadcrumbs-list">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/pages/ethical-hacking/index.html">Ethical Hacking</a></li>
+        <li><a href="/pages/ethical-hacking/web-hacking/index.html">Web Hacking</a></li>
+        <li aria-current="page">SQL Injection</li>
+      </ol>
+    </nav>
+
+    <main class="page-main">
+      <aside class="sidebar">
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Sections</h2>
+          <ul class="sidebar-list">
+            <li><a href="#definition">Definition</a></li>
+            <li><a href="#how-it-happens">How it happens</a></li>
+            <li><a href="#finding-in-labs">Finding it in labs</a></li>
+            <li><a href="#prevention">Prevention</a></li>
+            <li><a href="#checklist">Secure coding checklist</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="page-content fade-in">
+        <header class="page-header">
+          <h1 class="page-title">SQL Injection (SQLi)</h1>
+          <p class="page-subtitle">
+            A classic but still critical class of web vulnerability that occurs
+            when untrusted input is combined with database queries in an unsafe
+            way. Here you’ll study SQLi so you can help prevent it in real
+            systems.
+          </p>
+        </header>
+
+        <article class="content-section" id="definition">
+          <h2>What is SQL injection?</h2>
+          <p>
+            SQL injection is a vulnerability that appears when an application
+            builds SQL queries by directly combining user-controlled data with
+            query text, instead of sending the data separately as values.
+          </p>
+          <p>
+            In that situation, an attacker may influence how the database
+            interprets the query, which can lead to data exposure, modification,
+            or other unintended behavior. In ethical hacking labs, you explore
+            these scenarios to understand impact and prevention, not to attack
+            real systems.
+          </p>
+        </article>
+
+        <article class="content-section" id="how-it-happens">
+          <h2>How SQL injection vulnerabilities arise</h2>
+          <p>
+            A typical vulnerable pattern is when server-side code assembles a
+            query using string concatenation:
+          </p>
+          <pre class="card" style="font-size:0.85rem; overflow-x:auto;"><code>
+// Pseudo-code: vulnerable pattern
+query = "SELECT * FROM users WHERE username = '" + userInput + "'";
+result = db.query(query);
+          </code></pre>
+          <p>
+            Here, the database engine receives one combined string and interprets
+            both the developer’s intended SQL and the user-supplied text as part
+            of the same query. If the input is not strictly validated and
+            parameterized, this can allow unexpected behavior.
+          </p>
+          <p>
+            Ethical hackers aim to detect such patterns in controlled
+            environments by observing how applications respond to different
+            types of input, always within a defined scope and under an agreement
+            that testing is allowed.
+          </p>
+        </article>
+
+        <article class="content-section" id="finding-in-labs">
+          <h2>Recognizing SQLi during labs</h2>
+          <p>
+            In InfoSecKe labs and CTF challenges that are explicitly designed to
+            be vulnerable, you can watch for:
+          </p>
+          <ul class="sidebar-list">
+            <li>
+              Features that filter or display data from a database based on input
+              (search forms, login forms, filters, profile views).
+            </li>
+            <li>
+              Responses that behave differently when you provide unexpected
+              characters or structures in input fields.
+            </li>
+            <li>
+              Error messages that reveal underlying database details
+              (e.g. complaining about SQL syntax).
+            </li>
+          </ul>
+          <p>
+            The goal in these labs is not to memorize specific payloads, but to
+            build an intuition about where queries are constructed and how to
+            confirm a potential issue safely without damaging data.
+          </p>
+        </article>
+
+        <article class="content-section" id="prevention">
+          <h2>Preventing SQL injection</h2>
+          <p>
+            Modern applications have many defenses available. Ethical hackers
+            need to understand these to help teams fix issues at the root:
+          </p>
+
+          <div class="card">
+            <h3 class="card-title">Use parameterized queries</h3>
+            <p>
+              Instead of inserting input into the query text, send it as
+              separate parameters. The database engine then treats user data as
+              values, not as part of the query structure. Most server-side
+              frameworks support prepared statements out of the box.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.7rem;">
+            <h3 class="card-title">Rely on safe database abstraction layers</h3>
+            <p>
+              Many ORMs and query builders encourage patterns that separate data
+              from query text. When used correctly and updated regularly, they
+              reduce the risk of injection significantly.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.7rem;">
+            <h3 class="card-title">Validate and constrain input</h3>
+            <p>
+              Even with parameterized queries, you should validate and constrain
+              input by type, length, and format. For example, if a value should
+              be an integer or a limited-length identifier, enforce that early.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:0.7rem;">
+            <h3 class="card-title">Least-privilege database accounts</h3>
+            <p>
+              The account used by the application to talk to the database should
+              only have the permissions it needs. This reduces the impact if a
+              query is abused.
+            </p>
+          </div>
+        </article>
+
+        <article class="content-section" id="checklist">
+          <h2>Secure coding checklist for SQLi</h2>
+          <p>
+            When you review or write server-side code that touches databases,
+            you can use this checklist:
+          </p>
+          <ul class="sidebar-list">
+            <li>Are queries built using parameters / prepared statements?</li>
+            <li>Are user inputs validated and normalized before use?</li>
+            <li>Are any dynamic parts of queries unavoidable, and if so, are they constrained to safe values?</li>
+            <li>Does the database account follow least privilege?</li>
+            <li>Are error messages generic for users but detailed in logs for operators?</li>
+          </ul>
+          <p>
+            This checklist is just a starting point; more complex systems may
+            require custom controls and additional layers of defense.
+          </p>
+        </article>
+
+        <section class="cta">
+          <h2>Practice SQLi ethically</h2>
+          <p>
+            Apply these concepts in dedicated labs designed to be broken. Never
+            test random applications or databases without explicit written
+            permission.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="/pages/labs/beginner-labs.html">
+              Open SQLi practice labs
+            </a>
+            <a class="btn btn-outline" href="/pages/resources/cheatsheets/metasploit-cheatsheet.html">
+              Explore tooling cheatsheets
+            </a>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <section>
+          <h3>Learn more</h3>
+          <ul>
+            <li><a href="/pages/cybersecurity/attack-types/index.html">Attack Types Overview</a></li>
+            <li><a href="/pages/research/vulnerabilities/exploit-development.html">Exploit Development (High Level)</a></li>
+            <li><a href="/pages/blog/tags/case-study.html">Case Studies</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Defend</h3>
+          <ul>
+            <li><a href="/pages/cybersecurity/defense/index.html">Defense Strategies</a></li>
+            <li><a href="/pages/devops/ci-cd/index.html">Secure CI/CD</a></li>
+            <li><a href="/pages/devops/infrastructure-as-code/index.html">IaC Security</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Ethics</h3>
+          <ul>
+            <li><a href="/pages/legal/ethics.html">Ethical Guidelines</a></li>
+            <li><a href="/pages/legal/responsible-hacking.html">Responsible Hacking</a></li>
+            <li><a href="/pages/legal/disclosure.html">Disclosure Policy</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="/pages/community/mentorship.html">Get a Mentor</a></li>
+            <li><a href="/pages/community/projects/collaborative.html">Collaborative Projects</a></li>
+            <li><a href="/pages/community/jobs/internships.html">Internships</a></li>
+          </ul>
+        </section>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> InfoSecKe. Build secure data layers.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/assets/js/theme-toggle.js"></script>
+  <script src="/assets/js/navbar.js"></script>
+  <script src="/assets/js/progress-bar.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
