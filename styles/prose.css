@@ -1,0 +1,31 @@
+@layer components {
+  .prose-content {
+    @apply prose prose-neutral dark:prose-invert max-w-none;
+    @apply prose-headings:font-heading prose-headings:tracking-tight;
+    @apply prose-a:text-primary prose-a:no-underline hover:prose-a:underline;
+    @apply prose-code:before:content-none prose-code:after:content-none;
+    @apply prose-pre:p-0 prose-pre:bg-transparent;
+  }
+
+  .prose-content [data-rehype-pretty-code-figure] {
+    @apply my-8;
+  }
+
+  .prose-content [data-rehype-pretty-code-figure] pre {
+    @apply overflow-x-auto rounded-xl border border-border bg-muted/40 p-4 text-sm;
+  }
+
+  .prose-content [data-rehype-pretty-code-title] {
+    @apply mb-2 text-sm font-medium text-muted-foreground;
+  }
+
+  .prose-content .anchor {
+    @apply no-underline;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prose-content .anchor {
+    scroll-behavior: auto;
+  }
+}
