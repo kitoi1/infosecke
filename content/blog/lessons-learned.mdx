@@ -1,0 +1,100 @@
+---
+title: "Lessons Learned: Building a Cybersecurity Platform and Community"
+description: "Honest reflections on building InfoSecKe – what worked, what didn't, and how to avoid common pitfalls when starting an open-source security project."
+author: "InfoSecKe Core Team"
+date: "2025-06-20"
+tags: ["lessons learned", "open source", "community", "platform engineering", "cybersecurity"]
+---
+
+# Lessons Learned: Building InfoSecKe from Scratch
+
+Every project teaches you something. After months of building InfoSecKe – an open-source cybersecurity learning platform – we’ve collected our fair share of hard-won insights. Here are the most important lessons, in hopes they help you avoid the same mistakes.
+
+## 1. Start with the Community, Not the Code
+
+We initially spent weeks perfecting the tech stack, designing the perfect architecture, and writing extensive documentation. **None of that mattered without actual users.**
+
+The turning point came when we launched a minimal version – just a few labs and a basic blog – and invited early testers. Their feedback reshaped everything.
+
+<Callout type="info" title="Actionable advice">
+  Ship something small. A simple landing page with three labs is infinitely more valuable than a flawless, empty platform. Engage early, iterate publicly.
+</Callout>
+
+<Callout type="warning" title="Heads up">
+  Always back up your data first.
+</Callout>
+
+## 2. Content Trumps Features
+
+We thought we needed interactive consoles, automatic grading, and complex progress tracking. Users wanted **clear, practical content**. A well-written lab with static instructions often outperformed a fancy one with bugs.
+
+- **What worked**: Step‑by‑step guides that explained the *why* behind each command.
+- **What didn't**: Over‑engineered UIs that confused learners.
+
+Now, we prioritize content quality first. A good tutorial on Nmap beats a beautiful dashboard that nobody understands.
+
+## 3. Security is a Process, Not a Product
+
+Ironically, building a security platform didn't make us immune to security issues. We learned:
+
+- **Secret scanning must be automated from day one** – we leaked a test API key (revoked immediately, but still stressful).
+- **Dependency hygiene saves late‑night scrambles** – using `npm audit` regularly prevented vulnerable packages from lingering.
+- **Assume compromise** – we built incident response runbooks even before we had production users.
+
+Treat your own platform as you would advise your users to treat theirs.
+
+## 4. Open Source ≠ Free Labor
+
+Opening the source code is just the first step. We underestimated how much work was needed to make *contributing* easy:
+
+- **Clear CONTRIBUTING.md** with setup steps, coding standards, and beginner‑friendly issues.
+- **Issue templates** that guide reporters to provide actionable details.
+- **Mentorship** – a few experienced volunteers spent time pairing with new contributors. That paid off hugely in retention.
+
+<Callout type="success" title="What worked">
+  Tagging issues as `good first issue` and personally welcoming each new contributor in our Discord doubled our contributor base in two months.
+</Callout>
+
+## 5. Documentation is a Feature
+
+Our early docs were sparse. We expected people to read the README and figure it out. They didn't.
+
+We now treat documentation with the same rigor as code:
+
+- Every new lab requires a corresponding guide.
+- Docs are written by pairing developers with non‑technical volunteers to ensure clarity.
+- We use MDX so documentation stays version‑controlled alongside the source.
+
+A platform without good documentation is just a puzzle. A platform with great documentation is a tool anyone can use.
+
+## 6. Burnout is the Biggest Threat
+
+Maintainers are the most critical infrastructure of any open‑source project. We almost lost key contributors because of the relentless pace.
+
+To combat this:
+
+- We explicitly define “minimum viable maintenance” – if we only respond to security issues and critical bugs, that's okay.
+- Rotating on‑call for community support (no one person bears all the burden).
+- Celebrate small wins publicly – it reminds everyone why we do this.
+
+Remember, the project's health depends on the health of its people.
+
+## 7. The Right Tools Matter
+
+Early on, we avoided “complicated” tools, thinking they'd slow us down. In reality, they saved us:
+
+- **MDX for content** – allows us to write documentation, blogs, and lab instructions in a single format.
+- **Next.js** – gave us static generation for performance while still allowing dynamic interactivity.
+- **Docker** for labs – consistent, reproducible environments with zero setup friction for learners.
+
+But be careful: pick tools you'll actually maintain. Simplicity is a feature.
+
+## Looking Ahead
+
+We're far from perfect. But these lessons have shaped a platform that's growing steadily, serving learners across Kenya and beyond, and staying true to its open‑source roots.
+
+If you're building something similar, remember: **ship early, listen often, and take care of your people.** The rest will follow.
+
+---
+
+*What lessons have you learned in your security journey? Share your story on our [Discord](https://discord.gg/infosecke) or contribute to the [blog](/blog).*

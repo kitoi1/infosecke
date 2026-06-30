@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["next-mdx-remote"],
+  // your existing configuration, if any
 };
 
 export default nextConfig;

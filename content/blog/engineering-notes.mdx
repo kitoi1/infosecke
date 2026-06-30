@@ -1,0 +1,82 @@
+---
+title: "Engineering Notes: Building an Open‑Source Learning Platform"
+description: "Lessons learned from building InfoSecKe – a cybersecurity education platform that scales. Covers architecture choices, MDX pitfalls, and performance tuning."
+author: "InfoSecKe Engineering Team"
+date: "2025-06-20"
+tags: ["engineering", "open-source", "nextjs", "mdx", "platform"]
+---
+
+# Engineering Notes: Behind the Scenes of InfoSecKe
+
+Building a cybersecurity learning platform from scratch is as much an engineering challenge as it is a content challenge. In this post, we’ll walk through some of the technical decisions we made, the problems we hit, and what we’d do differently next time.
+
+## The Stack: Why Next.js + MDX?
+
+We chose **Next.js** (App Router) and **MDX** for a few reasons:
+
+- **Static generation + dynamic content**: Most of our content is static (docs, blog, learn modules), but we also need interactive components (labs, live demos). Next.js lets us mix SSG with client components seamlessly.
+- **MDX for authoring**: Our contributors write documentation and learning materials in Markdown with embedded React components. MDX made that possible without requiring a headless CMS.
+- **TypeScript for reliability**: The type system catches broken imports, missing props, and invalid data paths before they hit production.
+
+We also evaluated Docusaurus and Astro. Docusaurus was simpler but less flexible for custom interactive components. Astro was tempting, but the Next.js ecosystem is more mature for complex applications. In the end, Next.js gave us the right balance of power and familiarity.
+
+<Callout type="info" title="Open Source">
+  The entire stack is open‑source and runs on a free‑tier Vercel plan. You can see the full source code on <a href="https://github.com/kitoi1">GitHub</a>.
+</Callout>
+
+<Callout type="warning" title="Heads up">
+  Always back up your data first.
+</Callout>
+
+## The MDX Learning Curve
+
+MDX is powerful, but it comes with gotchas:
+
+1. **Component closing tags**: Unlike plain Markdown, custom JSX components must always be explicitly closed. A missing `</Step>` will break the entire page (and give you a cryptic error). We now use a pre‑commit hook to validate MDX syntax.
+2. **Plugin compatibility**: `rehype-pretty-code` for syntax highlighting conflicted with Turbopack’s serialization requirements. We resolved it by using `next-mdx-remote/rsc` instead of `@next/mdx` – a lesson learned the hard way.
+3. **`params` are now Promises**: With Next.js 16, all route parameters must be awaited. This broke every MDX page at once, but once fixed, the pattern is clean and future‑proof.
+
+If you’re building a similar site, our advice: start with a minimal MDX setup, then add plugins one by one. It’ll save hours of debugging.
+
+## Scaling Content with the Filesystem
+
+We considered a database for content management, but the filesystem won out for simplicity:
+
+- **Git‑friendly**: Every piece of content is a versioned `.mdx` file. Pull requests are the only contribution workflow we need.
+- **Fast builds**: Next.js statically generates each page at build time. Even with 50+ content files, the entire site builds in under 10 seconds.
+- **No vendor lock‑in**: Moving to a different platform later requires zero data migration – just copy the `content/` folder.
+
+We use a simple convention: `content/{category}/{slug}.mdx`. The routing mirrors the folder structure, making it easy to find and edit any page.
+
+## Performance Optimizations That Mattered
+
+Initially, our Lighthouse performance score hovered around 75. Here’s what got us to 95+:
+
+- **Lazy loading lab components**: Interactive labs are loaded dynamically with `next/dynamic`, so the initial JavaScript bundle stays under 200 KB.
+- **Image optimization**: All hero images and screenshots are served with `next/image` and modern formats (WebP, AVIF).
+- **Font subsetting**: We self‑host only the font weights we actually use (400, 500, 700 for Inter, 400 for JetBrains Mono).
+- **Code block streaming**: Syntax‑highlighted code blocks are rendered server‑side and streamed to the client, so they never block the first paint.
+
+These changes made a huge difference without sacrificing the rich, interactive experience.
+
+## The Community is the Secret Sauce
+
+InfoSecKe is built in the open, and our community has been incredible. From fixing broken links to writing entire modules, contributors have shaped the platform.
+
+One of our favorite community contributions? The **Tools** section. A first‑time contributor submitted a detailed Wireshark guide, and it sparked a whole series of tool‑specific resources. We’ve learned that lowering the barrier to contribution (clear README, CONTRIBUTING.md, and issue tags like `good first issue`) pays dividends.
+
+<Callout type="success" title="Want to contribute?">
+  See our <a href="/docs/contributing">Contributing Guide</a> and pick up an issue that matches your skill level. We’d love to have you.
+</Callout>
+
+## What’s Next?
+
+We’re working on:
+
+- **Progress tracking**: A local‑first system that remembers which labs you’ve completed.
+- **Interactive diagrams**: Using Mermaid or Excalidraw to visualize attack patterns and network topologies.
+- **Multi‑language support**: We plan to internationalize the learning paths to reach more learners in Kenya and beyond.
+
+Building InfoSecKe has been a rewarding engineering journey. If you’re interested in the technical details, dive into the source code or reach out on Discord.
+
+Happy building – and stay secure!
